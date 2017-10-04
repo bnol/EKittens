@@ -128,6 +128,7 @@ $(function($) {
     switch (cards.length) {
       case 1:
         var card = main.gameData.getCardFromHand(cards.data("id"));
+        console.log(card);
         if (card.type === $C.CARD.FAVOR) {
           GameRoom.showFavorSelectOverlay(main);
         } else {
@@ -523,6 +524,19 @@ $(function($) {
   io.on($C.GAME.PLAYER.FUTURE, function(data) {
     var cards = data.cards;
     if (cards.length > 0) {
+      $("#seeFuturePopup .cardDisplay").empty();
+      $.each(cards, function(index, card) {
+          var html =
+            "<img data-selected='false' data-id='" +
+            card.id +
+            "' class='card noselect card-" +
+            card.name.toLowerCase() +
+            "' src='assets/cards/" +
+            card.name.toLowerCase() +
+            ".png' />";
+          $("#seeFuturePopup .cardDisplay").append(html);
+      });
+      GameRoom.showSeeTheFutureOverlay(main);
       //Tell player of the cards they see
       var string = "You see a ";
       $.each(cards, function(index, card) {

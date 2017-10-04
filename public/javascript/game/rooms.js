@@ -267,6 +267,13 @@ var GameRoom = {
           "<span>" +
           type +
           "</span>" +
+          "<img data-selected='false' data-id='" +
+          key +
+          "' class='card noselect card-" +
+          type.toLowerCase() +
+          "' src='assets/cards/" +
+          type.toLowerCase() +
+          ".png' />" +
           "</div>";
         $("#namedStealPopup .cardDisplay").append(html);
       }
@@ -468,6 +475,13 @@ var GameRoom = {
     $("#playArea button").addClass("disabled");
   },
 
+  showSeeTheFutureOverlay: function() {
+    $("#overlay").show();
+    $("#overlay .popup").hide();
+    $("#seeFuturePopup").show();
+    $("#playArea button").addClass("disabled");
+  },
+
   hideOverlay: function() {
     $("#overlay").hide();
     $("#playingInput button").removeClass("disabled");
@@ -569,6 +583,7 @@ var GameRoom = {
      */
   logLocal: function(message) {
     this.logMessage("[Local] " + message, "local");
+    console.log("[Local] " + message)
   },
 
   /**
