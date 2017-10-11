@@ -9,7 +9,23 @@ body {
   orientation: landscape;
 }
 
-.touch #fullscreen, .touch #rotate {
+@font-face {
+  font-family: "bebas_neuebold";
+  src: url("fonts/bebas-neue/bebasneue_bold-webfont.woff2") format("woff2"),
+    url("fonts/bebas-neue/bebasneue_bold-webfont.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "bebas_neueregular";
+  src: url("fonts/bebas-neue/bebasneue_regular-webfont.woff2") format("woff2"),
+    url("fonts/bebas-neue/bebasneue_regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.touch #fullscreen,
+.touch #rotate {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -585,9 +601,10 @@ body {
   display: block;
   padding: 0;
   border: 0;
-  font-family: "Bangers", cursive;
+  font-family: "bebas_neuebold", "Bangers", cursive;
+  font-weight: 700;
   font-size: 70px;
-  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #fff;
   background: -webkit-linear-gradient(top, #fccb21, #ec1e21);
   background: linear-gradient(top, #fccb21, #ec1e21);
